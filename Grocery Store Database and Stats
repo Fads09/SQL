@@ -1,0 +1,31 @@
+/** Create your own store! Your store should sell one type of things, like clothing or bikes, whatever you want your store to specialize in. 
+You should have a table for all the items in your store, and at least 5 columns for the kind of data you think you'd need to store. 
+You should sell at least 15 items, and use select statements to order your items by price and show at least one statistic about the items.**/
+
+--create table called clothing_store
+create table clothing_store(id integer primary key, product_name text, size text, material text, quantity integer, price integer);
+
+--insert data
+insert into clothing_store values(1,"maxi skirt", "small", "polyster", 2, 79),
+(2,"cardigan", "X-small", "cotton", 5, 119),
+(3,"trousers", "large", "polyster", 4, 45),
+(4,"dress", "medium", "silk", 7, 89),
+(5,"hoodies", "X-small", "cotton", 5, 70),
+(6,"sweaters", "large", "polyster", 4, 68),
+(7,"coats", "medium", "silk", 7, 150),
+(8,"abaya", "small", "polyster", 2, 89),
+(9,"caftan", "X-small", "cotton", 5, 100),
+(10,"shirt", "large", "polyster", 4, 60),
+(11,"blouse", "medium", "silk", 7, 50),
+(12,"jacket", "X-small", "cotton", 5, 70),
+(13,"jeans", "large", "polyster", 4, 45),
+(14,"sweatpants", "medium", "silk", 7, 50),
+(15,"shorts", "medium", "silk", 7, 45);
+
+--display the product_name and price ordered by price. 
+SELECT product_name, price FROM clothing_store order by price desc;
+
+--display the most expensive item in store
+SELECT max(price) FROM clothing_store;
+
+
