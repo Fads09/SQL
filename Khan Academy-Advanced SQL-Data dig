@@ -1,0 +1,33 @@
+Using Marvel characters data from this database shorturl.at/gklBN
+
+--what is the popular character? 
+
+select name, max(popularity) as most_popular from marvels;
+
+--what is the average height of males in marvels in each hometown?
+
+select count(*),avg(height_m),hometown from marvels where gender == "Male" group by hometown;
+
+--how many many marvel is good, neutral and bad?
+
+select COUNT(*), CASE WHEN alignment == "Good" THEN "good character"
+WHEN alignment == "Bad" then "bad character"
+ELSE "Neutral character" END AS marvel_alignment from marvels group by alignment;
+
+--How many male and female characters are in the database?
+
+select count(*), gender as total_gender from marvels group by gender;
+SELECT * FROM marvels;
+
+--Which Marvel character has the highest combined strength, speed, and durability scores?
+
+select name, min(intelligence) from marvels;
+
+--Can we group the Marvel characters by their alignment and calculate the average popularity score for each group?
+
+select COUNT(*), alignment, avg(popularity) as avg_popularity from marvels group by alignment;
+
+--Can we filter the data to show only male characters with a height over 2 meters and a weight under 500 kg?
+
+select name, height_m, weight_kg from marvels where gender == "Male" and height_m > 2 and weight_kg < 500 ;
+
