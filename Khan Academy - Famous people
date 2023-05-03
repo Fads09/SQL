@@ -1,0 +1,42 @@
+/* In this project, you’re going to make your own table with some small set of “famous people”, 
+then make more tables about things they do and join those to create nice human readable lists. */
+
+/* Create table about the people and what they do here */
+
+CREATE TABLE famous_people (
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  profession TEXT,
+  birthdate TEXT);
+
+INSERT INTO famous_people (id, name, profession, birthdate)
+VALUES
+  (1, 'Albert Einstein', 'Physicist', '1879-03-14'),
+  (2, 'Marie Curie', 'Chemist', '1867-11-07'),
+  (3, 'William Shakespeare', 'Playwright', '1564-04-26');
+  
+CREATE TABLE works (
+  id INTEGER PRIMARY KEY,
+  famous_person_id INTEGER,
+  title TEXT,
+  year_published INTEGER
+);
+
+INSERT INTO works (id, famous_person_id, title, year_published)
+VALUES
+  (1, 1, 'Theory of Relativity', 1915),
+  (2, 2, 'Radioactivity', 1903),
+  (3, 3, 'Hamlet', 1600),
+  (4, 3, 'Romeo and Juliet', 1597);
+  
+CREATE TABLE awards (
+  id INTEGER PRIMARY KEY,
+  famous_person_id INTEGER,
+  award_name TEXT,
+  year_received INTEGER
+);
+
+INSERT INTO awards (id, famous_person_id, award_name, year_received) VALUES
+  (1, 1, 'Nobel Prize in Physics', 1921),
+  (2, 2, 'Nobel Prize in Chemistry', 1911),
+  (3, 3, 'No awards found', NULL);
